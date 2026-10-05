@@ -1,0 +1,524 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  background: #f5f7fb;
+  color: #111827;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top right, rgba(73, 144, 255, 0.12), transparent 30%),
+    #f5f7fb;
+}
+
+.header {
+  height: 76px;
+  padding: 0 42px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid #e5e7eb;
+  backdrop-filter: blur(12px);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logoIcon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111827;
+  color: white;
+  font-weight: 800;
+  font-size: 20px;
+}
+
+.logoTitle {
+  font-weight: 800;
+  font-size: 16px;
+}
+
+.logoSubtitle {
+  color: #6b7280;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.connectButton,
+.primaryButton {
+  border: 0;
+  border-radius: 12px;
+  padding: 12px 20px;
+  background: #111827;
+  color: white;
+  font-weight: 700;
+  transition: 0.2s;
+}
+
+.connectButton:hover,
+.primaryButton:hover {
+  transform: translateY(-1px);
+  background: #1f2937;
+}
+
+.disconnectButton,
+.secondaryButton {
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  padding: 11px 16px;
+  background: white;
+  color: #111827;
+  font-weight: 700;
+}
+
+.walletArea {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.walletAddress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: #f3f4f6;
+  font-size: 13px;
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  background: #22c55e;
+}
+
+.container {
+  width: min(1100px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 70px 0 40px;
+}
+
+.hero {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 35px;
+}
+
+.heroBadge {
+  display: inline-block;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: #e8eefc;
+  color: #3157a6;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.hero h1 {
+  margin: 18px 0 12px;
+  font-size: clamp(40px, 6vw, 64px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.hero h1 span {
+  color: #3b82f6;
+}
+
+.hero p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.notification {
+  max-width: 700px;
+  margin: 0 auto 20px;
+  padding: 13px 16px;
+  border-radius: 12px;
+  background: #eaf6ed;
+  color: #166534;
+  text-align: center;
+  font-weight: 600;
+}
+
+.connectCard,
+.walletCard,
+.pluginsSection,
+.infoCard {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 22px;
+  box-shadow: 0 12px 40px rgba(17, 24, 39, 0.06);
+}
+
+.connectCard {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 50px 30px;
+  text-align: center;
+}
+
+.bigIcon {
+  font-size: 50px;
+}
+
+.connectCard h2 {
+  margin: 15px 0 10px;
+}
+
+.connectCard p {
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.walletCard {
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.cardLabel {
+  color: #6b7280;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin-bottom: 7px;
+}
+
+.walletFullAddress {
+  font-family: monospace;
+  font-size: 14px;
+  word-break: break-all;
+}
+
+.walletVersion {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #166534;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.actionButton {
+  border: 1px solid #e5e7eb;
+  background: white;
+  border-radius: 18px;
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-align: left;
+  transition: 0.2s;
+}
+
+.actionButton:hover {
+  border-color: #93c5fd;
+  transform: translateY(-2px);
+}
+
+.actionButton > span {
+  font-size: 30px;
+}
+
+.actionButton strong,
+.actionButton small {
+  display: block;
+}
+
+.actionButton small {
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+.pluginsSection {
+  padding: 26px;
+  margin-top: 20px;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.sectionHeader h2 {
+  margin: 0;
+}
+
+.sectionHeader p {
+  margin: 6px 0 0;
+  color: #6b7280;
+}
+
+.smallAddButton {
+  border: 1px solid #d1d5db;
+  background: white;
+  border-radius: 10px;
+  padding: 9px 13px;
+  font-weight: 700;
+}
+
+.emptyState {
+  margin-top: 25px;
+  padding: 45px 20px;
+  text-align: center;
+  border: 1px dashed #d1d5db;
+  border-radius: 18px;
+}
+
+.emptyIcon {
+  font-size: 44px;
+}
+
+.emptyState h3 {
+  margin-bottom: 8px;
+}
+
+.emptyState p {
+  color: #6b7280;
+}
+
+.emptyActions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.pluginList {
+  display: grid;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.pluginCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+}
+
+.pluginIcon {
+  font-size: 25px;
+}
+
+.pluginInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.pluginInfo strong,
+.pluginInfo span {
+  display: block;
+}
+
+.pluginInfo span {
+  color: #6b7280;
+  font-family: monospace;
+  font-size: 12px;
+  margin-top: 4px;
+  overflow-wrap: anywhere;
+}
+
+.deleteButton {
+  border: 0;
+  background: #fff1f2;
+  border-radius: 10px;
+  padding: 9px;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.infoCard {
+  padding: 22px;
+}
+
+.infoCard > span {
+  display: inline-flex;
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  background: #eff6ff;
+  color: #2563eb;
+  font-weight: 800;
+}
+
+.infoCard h3 {
+  margin-bottom: 7px;
+}
+
+.infoCard p {
+  color: #6b7280;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 10;
+}
+
+.modal {
+  width: min(500px, 100%);
+  background: white;
+  border-radius: 22px;
+  padding: 30px;
+  position: relative;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
+}
+
+.closeButton {
+  position: absolute;
+  right: 18px;
+  top: 15px;
+  border: 0;
+  background: transparent;
+  font-size: 28px;
+  color: #6b7280;
+}
+
+.modalIcon {
+  font-size: 35px;
+}
+
+.modal h2 {
+  margin-bottom: 8px;
+}
+
+.modal p {
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+.modal input {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 11px;
+  outline: none;
+  margin-top: 10px;
+}
+
+.modal input:focus {
+  border-color: #3b82f6;
+}
+
+.modalButtons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+footer {
+  width: min(1100px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 30px 0;
+  display: flex;
+  justify-content: space-between;
+  color: #9ca3af;
+  font-size: 12px;
+}
+
+@media (max-width: 700px) {
+  .header {
+    padding: 0 18px;
+  }
+
+  .logoSubtitle {
+    display: none;
+  }
+
+  .walletAddress {
+    display: none;
+  }
+
+  .container {
+    padding-top: 45px;
+  }
+
+  .actions,
+  .infoGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .walletCard {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .sectionHeader {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .emptyActions {
+    flex-direction: column;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
